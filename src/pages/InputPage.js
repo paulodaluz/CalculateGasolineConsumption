@@ -10,8 +10,28 @@ const InputPage = (props) => {
 
   const average = () => {
     if (kilometersTraveled && usedGasoline) {
-      const averageConsumption = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
-      navigation.navigate("ResultPage", { averageConsumption });
+      const averageConsumption = (kilometersTraveled / usedGasoline).toFixed(2);
+
+      let consumptionIndication = "";
+      if (averageConsumption > 12) {
+        consumptionIndication = "A";
+      } else if (averageConsumption > 10 && averageConsumption <= 12) {
+        consumptionIndication = "B";
+      } else if (averageConsumption > 8 && averageConsumption <= 10) {
+        consumptionIndication = "C";
+      } else if (averageConsumption > 4 && averageConsumption <= 8) {
+        consumptionIndication = "D";
+      } else if (averageConsumption < 4) {
+        consumptionIndication = "E";
+      }
+
+      navigation.navigate("ResultPage", {
+        averageConsumption,
+        consumptionIndication,
+      });
+
+      setkilometersTraveled("");
+      setusedGasoline("");
     } else {
       setMsg("Parâmetros inválidos!");
     }
@@ -22,12 +42,14 @@ const InputPage = (props) => {
       <Text>{msg}</Text>
       <TextInput
         style={styles.caixaTexto}
+        keyboardType="numeric"
         placeholder="Quantidade de KM percorridos"
         onChangeText={(valor) => setkilometersTraveled(valor)}
         value={kilometersTraveled}
       />
       <TextInput
         style={styles.caixaTexto}
+        keyboardType="numeric"
         placeholder="Quantidade de gasolina consumida"
         onChangeText={(valor) => setusedGasoline(valor)}
         value={usedGasoline}

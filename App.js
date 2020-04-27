@@ -1,8 +1,7 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { CardStyleInterpolators } from "@react-navigation/stack";
 import InputPage from "./src/pages/InputPage";
 import ResultPage from "./src/pages/ResultPage";
 import "react-native-gesture-handler";
@@ -23,7 +22,7 @@ export default function App() {
           name="ResultPage"
           component={ResultPage}
           options={{
-            headerShown: false,
+            headerShown: true,
           }}
         />
       </Stack.Navigator>

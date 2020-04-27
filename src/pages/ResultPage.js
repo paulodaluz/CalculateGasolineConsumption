@@ -1,16 +1,20 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, TextInput, Button } from "react-native";
+import { StyleSheet, Text, View, Button } from "react-native";
 
 const ResultPage = (props) => {
-  const [kilometersTraveled, setkilometersTraveled] = useState("");
-  const [usedGasoline, setusedGasoline] = useState("");
-  const [msg, setMsg] = useState("Calcular a média de KM percorridos");
-
-  const { navigation, averageConsumption } = props;
+  const { navigation, route } = props;
+  const { averageConsumption, consumptionIndication } = route.params;
 
   return (
     <View style={styles.container}>
-      <Text>{averageConsumption}</Text>
+      <Text>Consumo médio do veículo: {averageConsumption}</Text>
+      <Text>Indicação de consumo de veículos: {consumptionIndication}</Text>
+      <View style={styles.botaoDefault}>
+        <Button
+          title="Voltar para a página inicial"
+          onPress={() => navigation.navigate("InputPage")}
+        />
+      </View>
     </View>
   );
 };
@@ -20,7 +24,7 @@ export default ResultPage;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "blue",
+    fontSize: 80,
     alignItems: "center",
     justifyContent: "center",
   },
