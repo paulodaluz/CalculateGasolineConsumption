@@ -50,7 +50,7 @@ const InputPage = (props) => {
       <TextInput
         style={styles.caixaTexto}
         keyboardType="numeric"
-        placeholder="Quantidade de gasolina consumida"
+        placeholder="Quantidade de litros de gasolina consumidos"
         onChangeText={(valor) => setusedGasoline(valor)}
         value={usedGasoline}
       />
