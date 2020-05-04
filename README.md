@@ -1,4 +1,4 @@
-# Descrição do Projeto
+# CalculateGasolineConsumption
 Este projeto foi desenvolvido com o intuito de atender aos requisitos de um trabalho da faculdade, condizente a matéria de Tópicos de Programação Mobile.
 
 ## Objetivo do Projeto
